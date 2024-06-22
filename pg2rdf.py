@@ -16,7 +16,7 @@ def csv_to_nt(csv_file, nt_file):
             subject = f"{os.path.basename(csv_file).split('.')[0]}_{row_number}"
             for field in fieldnames:
                 predicate = field
-                obj = row[field].replace(' ', '_')  # 将值中的空格替换为下划线
+                obj = row[field].replace(' ', '')  # 将值中的空格删除
                 triples.append(f"<{subject}> <{predicate}> <{obj}> .\n")
     
     # 将三元组写入NT文件
